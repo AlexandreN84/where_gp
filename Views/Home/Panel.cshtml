@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Panel";
+}
+
+<div>
+    <h2>Painel</h2>
+    <br />
+
+    <h4>
+        <a href="@Url.Action("Patrimonio", null, new { pagesize = 30, controller = "Home" }, Request.Url.Scheme)">
+            <span>Patrimonio</span>
+        </a>
+
+    </h4>
+    <h4>
+
+
+        @Html.ActionLink("Manutenção de Patrimonio", "PatrimonioManutencao", "Home")
+    </h4>
+
+    
+
+    
+</div>
