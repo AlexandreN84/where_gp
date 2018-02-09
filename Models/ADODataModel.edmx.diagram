@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a55fc42a52ed4ec1aa5226d3da9949d6" Name="Diagram1">
+        <EntityTypeShape EntityType="WebSenaiModel.Centro" Width="1.5" PointX="7.5" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSenaiModel.Conta" Width="1.5" PointX="7.5" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSenaiModel.Empresa" Width="1.5" PointX="0.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSenaiModel.Filial" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSenaiModel.RadioBase" Width="1.5" PointX="9.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSenaiModel.Setor" Width="1.5" PointX="7.5" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSenaiModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSenaiModel.Tag_Div" Width="1.5" PointX="9.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSenaiModel.Tag_HTML" Width="1.5" PointX="12" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSenaiModel.Tag_Hyperlink" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSenaiModel.Tag_Item_li" Width="1.5" PointX="9.75" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSenaiModel.Tag_SVG_Symbol" Width="1.5" PointX="9.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSenaiModel.UnidadeNegocio" Width="1.5" PointX="5.25" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSenaiModel.User" Width="1.5" PointX="2.75" PointY="2.25" IsExpanded="true" />
+        <AssociationConnector Association="WebSenaiModel.Rcatfytd" ManuallyRouted="false" />
+        <AssociationConnector Association="WebSenaiModel.Rcunidgen" ManuallyRouted="false" />
+        <AssociationConnector Association="WebSenaiModel.RcadioBasStr" ManuallyRouted="false" />
+        <AssociationConnector Association="WebSenaiModel.FK__Tag_Div__Id_Seto__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="WebSenaiModel.Setrtrn" ManuallyRouted="false" />
+        <AssociationConnector Association="WebSenaiModel.fk_Id_Div" ManuallyRouted="false" />
+        <AssociationConnector Association="WebSenaiModel.fk_Id_Hyper" ManuallyRouted="false" />
+        <AssociationConnector Association="WebSenaiModel.fk_Id_Item_li" ManuallyRouted="false" />
+        <AssociationConnector Association="WebSenaiModel.fk_SVG_Symbol" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="WebSenaiModel.Manutencao" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="WebSenaiModel.Patrimonio" Width="1.5" PointX="12" PointY="3.5" />
+        <EntityTypeShape EntityType="WebSenaiModel.Tag" Width="1.5" PointX="14.25" PointY="6.25" />
+        <AssociationConnector Association="WebSenaiModel.id_ctr_centro" />
+        <AssociationConnector Association="WebSenaiModel.id_ctr_conta" />
+        <AssociationConnector Association="WebSenaiModel.sdsdsdsdsd" />
+        <AssociationConnector Association="WebSenaiModel.tagBasStr" />
+        <AssociationConnector Association="WebSenaiModel.Rtag_html" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,1148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="WebSenaiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Centro">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descricao" Type="varchar" MaxLength="50" />
+          <Property Name="Resumo" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Conta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descricao" Type="varchar" MaxLength="50" />
+          <Property Name="Resumo" Type="varchar" MaxLength="250" />
+          <Property Name="Cd_Hospital" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Empresa">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descricao" Type="varchar" MaxLength="50" />
+          <Property Name="Resumo" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Filial">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Empresa" Type="int" Nullable="false" />
+          <Property Name="Descricao" Type="varchar" MaxLength="50" />
+          <Property Name="Resumo" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Manutencao">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descricao" Type="varchar" MaxLength="50" />
+          <Property Name="Resumo" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Patrimonio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descricao" Type="varchar" MaxLength="500" />
+          <Property Name="Resumo" Type="varchar" MaxLength="500" />
+          <Property Name="Numero" Type="int" />
+          <Property Name="Dt_Aquisicao" Type="varchar" MaxLength="10" />
+          <Property Name="Dt_InicioUso" Type="varchar" MaxLength="10" />
+          <Property Name="Tv_Depreciacao" Type="varchar" MaxLength="10" />
+          <Property Name="Valor_Original" Type="varchar" MaxLength="10" />
+          <Property Name="Id_Conta" Type="int" Nullable="false" />
+          <Property Name="Id_Centro" Type="int" Nullable="false" />
+          <Property Name="Qt_DiasCalibracao" Type="int" />
+          <Property Name="Qt_DiasDepreciacao" Type="int" />
+          <Property Name="Qt_DiasManutencao" Type="int" />
+          <Property Name="Qt_DiasTesteEletrico" Type="int" />
+        </EntityType>
+        <EntityType Name="RadioBase">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Setor" Type="int" Nullable="false" />
+          <Property Name="Descricao" Type="varchar" MaxLength="50" />
+          <Property Name="Resumo" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Setor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descricao" Type="varchar" MaxLength="50" />
+          <Property Name="Resumo" Type="varchar" MaxLength="250" />
+          <Property Name="Id_UnidadeNegocio" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Tag">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_RadioBase" Type="int" Nullable="false" />
+          <Property Name="Id_Patrimonio" Type="int" Nullable="false" />
+          <Property Name="Id_Tag_HTML" Type="int" Nullable="false" />
+          <Property Name="Descricao" Type="varchar" MaxLength="50" />
+          <Property Name="Resumo" Type="varchar" MaxLength="250" />
+          <Property Name="Pos_X" Type="varchar" MaxLength="5" />
+          <Property Name="CssTop" Type="varchar" MaxLength="15" />
+          <Property Name="CssLeft" Type="varchar" MaxLength="15" />
+          <Property Name="Temperatura" Type="varchar" MaxLength="15" />
+          <Property Name="Acelerometro" Type="varchar" MaxLength="15" />
+          <Property Name="MovLeveMesRB" Type="varchar" MaxLength="15" />
+          <Property Name="CargaBateria" Type="varchar" MaxLength="15" />
+          <Property Name="EstadoRemocao" Type="varchar" MaxLength="15" />
+          <Property Name="Ativa" Type="bit" />
+          <Property Name="Id_Conta" Type="int" />
+          <Property Name="Id_Centro" Type="int" />
+        </EntityType>
+        <EntityType Name="Tag_Div">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Setor" Type="int" Nullable="false" />
+          <Property Name="Titulo" Type="varchar" MaxLength="50" />
+          <Property Name="Marca" Type="varchar" MaxLength="50" />
+          <Property Name="Resumo" Type="varchar" MaxLength="250" />
+          <Property Name="Espaco" Type="varchar" MaxLength="250" />
+          <Property Name="Categoria" Type="varchar" MaxLength="250" />
+          <Property Name="Modelo" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Tag_HTML">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Div" Type="int" Nullable="false" />
+          <Property Name="Id_Hyperlink" Type="int" Nullable="false" />
+          <Property Name="Id_Item_li" Type="int" Nullable="false" />
+          <Property Name="Id_SVG_Symbol" Type="int" Nullable="false" />
+          <Property Name="CssTop" Type="varchar" MaxLength="15" />
+          <Property Name="CssLeft" Type="varchar" MaxLength="15" />
+          <Property Name="Nome" Type="varchar" MaxLength="40" />
+          <Property Name="Descrição" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="Tag_Hyperlink">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Titulo" Type="varchar" MaxLength="50" />
+          <Property Name="Classe" Type="varchar" MaxLength="40" />
+          <Property Name="ClasseSVG" Type="varchar" MaxLength="40" />
+          <Property Name="Espaco" Type="varchar" MaxLength="5" />
+          <Property Name="Categoria" Type="varchar" MaxLength="3" />
+        </EntityType>
+        <EntityType Name="Tag_Item_li">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Titulo" Type="varchar" MaxLength="50" />
+          <Property Name="Nivel" Type="varchar" MaxLength="50" />
+          <Property Name="Categoria" Type="varchar" MaxLength="250" />
+          <Property Name="Espaco" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Tag_SVG_Symbol">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_HTML" Type="varchar" MaxLength="50" />
+          <Property Name="Titulo" Type="varchar" MaxLength="50" />
+          <Property Name="Descricao" Type="varchar" MaxLength="250" />
+          <Property Name="Classe" Type="varchar" MaxLength="250" />
+          <Property Name="Dados" Type="text" />
+        </EntityType>
+        <EntityType Name="UnidadeNegocio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Filial" Type="int" Nullable="false" />
+          <Property Name="Descricao" Type="varchar" MaxLength="50" />
+          <Property Name="Resumo" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Pass" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Count" Type="int" />
+          <Property Name="Last" Type="datetime" />
+          <Property Name="Create" Type="datetime" />
+          <Property Name="Ative" Type="int" />
+          <Property Name="Hash" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <Association Name="FK__Tag_Div__Id_Seto__5CD6CB2B">
+          <End Role="Setor" Type="Self.Setor" Multiplicity="1" />
+          <End Role="Tag_Div" Type="Self.Tag_Div" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Setor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tag_Div">
+              <PropertyRef Name="Id_Setor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Id_Div">
+          <End Role="Tag_Div" Type="Self.Tag_Div" Multiplicity="1" />
+          <End Role="Tag_HTML" Type="Self.Tag_HTML" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tag_Div">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tag_HTML">
+              <PropertyRef Name="Id_Div" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Id_Hyper">
+          <End Role="Tag_Hyperlink" Type="Self.Tag_Hyperlink" Multiplicity="1" />
+          <End Role="Tag_HTML" Type="Self.Tag_HTML" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tag_Hyperlink">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tag_HTML">
+              <PropertyRef Name="Id_Hyperlink" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Id_Item_li">
+          <End Role="Tag_Item_li" Type="Self.Tag_Item_li" Multiplicity="1" />
+          <End Role="Tag_HTML" Type="Self.Tag_HTML" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tag_Item_li">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tag_HTML">
+              <PropertyRef Name="Id_Item_li" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SVG_Symbol">
+          <End Role="Tag_SVG_Symbol" Type="Self.Tag_SVG_Symbol" Multiplicity="1" />
+          <End Role="Tag_HTML" Type="Self.Tag_HTML" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tag_SVG_Symbol">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tag_HTML">
+              <PropertyRef Name="Id_SVG_Symbol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="id_ctr_centro">
+          <End Role="Centro" Type="Self.Centro" Multiplicity="1" />
+          <End Role="Patrimonio" Type="Self.Patrimonio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Centro">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Patrimonio">
+              <PropertyRef Name="Id_Centro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="id_ctr_conta">
+          <End Role="Conta" Type="Self.Conta" Multiplicity="1" />
+          <End Role="Patrimonio" Type="Self.Patrimonio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conta">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Patrimonio">
+              <PropertyRef Name="Id_Conta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RcadioBasStr">
+          <End Role="Setor" Type="Self.Setor" Multiplicity="1" />
+          <End Role="RadioBase" Type="Self.RadioBase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Setor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RadioBase">
+              <PropertyRef Name="Id_Setor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Rcatfytd">
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="1" />
+          <End Role="Filial" Type="Self.Filial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Filial">
+              <PropertyRef Name="Id_Empresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Rcunidgen">
+          <End Role="Filial" Type="Self.Filial" Multiplicity="1" />
+          <End Role="UnidadeNegocio" Type="Self.UnidadeNegocio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Filial">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UnidadeNegocio">
+              <PropertyRef Name="Id_Filial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Rtag_html">
+          <End Role="Tag_HTML" Type="Self.Tag_HTML" Multiplicity="1" />
+          <End Role="Tag" Type="Self.Tag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tag_HTML">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tag">
+              <PropertyRef Name="Id_Tag_HTML" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="sdsdsdsdsd">
+          <End Role="Patrimonio" Type="Self.Patrimonio" Multiplicity="1" />
+          <End Role="Tag" Type="Self.Tag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patrimonio">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tag">
+              <PropertyRef Name="Id_Patrimonio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Setrtrn">
+          <End Role="UnidadeNegocio" Type="Self.UnidadeNegocio" Multiplicity="1" />
+          <End Role="Setor" Type="Self.Setor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UnidadeNegocio">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Setor">
+              <PropertyRef Name="Id_UnidadeNegocio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tagBasStr">
+          <End Role="RadioBase" Type="Self.RadioBase" Multiplicity="1" />
+          <End Role="Tag" Type="Self.Tag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RadioBase">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tag">
+              <PropertyRef Name="Id_RadioBase" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="WebSenaiModelStoreContainer">
+          <EntitySet Name="Centro" EntityType="Self.Centro" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Conta" EntityType="Self.Conta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Empresa" EntityType="Self.Empresa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Filial" EntityType="Self.Filial" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Manutencao" EntityType="Self.Manutencao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patrimonio" EntityType="Self.Patrimonio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RadioBase" EntityType="Self.RadioBase" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Setor" EntityType="Self.Setor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tag" EntityType="Self.Tag" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tag_Div" EntityType="Self.Tag_Div" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tag_HTML" EntityType="Self.Tag_HTML" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tag_Hyperlink" EntityType="Self.Tag_Hyperlink" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tag_Item_li" EntityType="Self.Tag_Item_li" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tag_SVG_Symbol" EntityType="Self.Tag_SVG_Symbol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UnidadeNegocio" EntityType="Self.UnidadeNegocio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Tag_Div__Id_Seto__5CD6CB2B" Association="Self.FK__Tag_Div__Id_Seto__5CD6CB2B">
+            <End Role="Setor" EntitySet="Setor" />
+            <End Role="Tag_Div" EntitySet="Tag_Div" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Id_Div" Association="Self.fk_Id_Div">
+            <End Role="Tag_Div" EntitySet="Tag_Div" />
+            <End Role="Tag_HTML" EntitySet="Tag_HTML" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Id_Hyper" Association="Self.fk_Id_Hyper">
+            <End Role="Tag_Hyperlink" EntitySet="Tag_Hyperlink" />
+            <End Role="Tag_HTML" EntitySet="Tag_HTML" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Id_Item_li" Association="Self.fk_Id_Item_li">
+            <End Role="Tag_Item_li" EntitySet="Tag_Item_li" />
+            <End Role="Tag_HTML" EntitySet="Tag_HTML" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SVG_Symbol" Association="Self.fk_SVG_Symbol">
+            <End Role="Tag_SVG_Symbol" EntitySet="Tag_SVG_Symbol" />
+            <End Role="Tag_HTML" EntitySet="Tag_HTML" />
+          </AssociationSet>
+          <AssociationSet Name="id_ctr_centro" Association="Self.id_ctr_centro">
+            <End Role="Centro" EntitySet="Centro" />
+            <End Role="Patrimonio" EntitySet="Patrimonio" />
+          </AssociationSet>
+          <AssociationSet Name="id_ctr_conta" Association="Self.id_ctr_conta">
+            <End Role="Conta" EntitySet="Conta" />
+            <End Role="Patrimonio" EntitySet="Patrimonio" />
+          </AssociationSet>
+          <AssociationSet Name="RcadioBasStr" Association="Self.RcadioBasStr">
+            <End Role="Setor" EntitySet="Setor" />
+            <End Role="RadioBase" EntitySet="RadioBase" />
+          </AssociationSet>
+          <AssociationSet Name="Rcatfytd" Association="Self.Rcatfytd">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="Filial" EntitySet="Filial" />
+          </AssociationSet>
+          <AssociationSet Name="Rcunidgen" Association="Self.Rcunidgen">
+            <End Role="Filial" EntitySet="Filial" />
+            <End Role="UnidadeNegocio" EntitySet="UnidadeNegocio" />
+          </AssociationSet>
+          <AssociationSet Name="Rtag_html" Association="Self.Rtag_html">
+            <End Role="Tag_HTML" EntitySet="Tag_HTML" />
+            <End Role="Tag" EntitySet="Tag" />
+          </AssociationSet>
+          <AssociationSet Name="sdsdsdsdsd" Association="Self.sdsdsdsdsd">
+            <End Role="Patrimonio" EntitySet="Patrimonio" />
+            <End Role="Tag" EntitySet="Tag" />
+          </AssociationSet>
+          <AssociationSet Name="Setrtrn" Association="Self.Setrtrn">
+            <End Role="UnidadeNegocio" EntitySet="UnidadeNegocio" />
+            <End Role="Setor" EntitySet="Setor" />
+          </AssociationSet>
+          <AssociationSet Name="tagBasStr" Association="Self.tagBasStr">
+            <End Role="RadioBase" EntitySet="RadioBase" />
+            <End Role="Tag" EntitySet="Tag" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WebSenaiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Centro">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Resumo" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Patrimonio" Relationship="WebSenaiModel.id_ctr_centro" FromRole="Centro" ToRole="Patrimonio" />
+        </EntityType>
+        <EntityType Name="Conta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Resumo" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Cd_Hospital" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Patrimonio" Relationship="WebSenaiModel.id_ctr_conta" FromRole="Conta" ToRole="Patrimonio" />
+        </EntityType>
+        <EntityType Name="Empresa">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Resumo" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Filial" Relationship="Self.Rcatfytd" FromRole="Empresa" ToRole="Filial" />
+        </EntityType>
+        <EntityType Name="Filial">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Empresa" Type="Int32" Nullable="false" />
+          <Property Name="Descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Resumo" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Empresa" Relationship="Self.Rcatfytd" FromRole="Filial" ToRole="Empresa" />
+          <NavigationProperty Name="UnidadeNegocio" Relationship="Self.Rcunidgen" FromRole="Filial" ToRole="UnidadeNegocio" />
+        </EntityType>
+        <EntityType Name="RadioBase">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Setor" Type="Int32" Nullable="false" />
+          <Property Name="Descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Resumo" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Setor" Relationship="Self.RcadioBasStr" FromRole="RadioBase" ToRole="Setor" />
+          <NavigationProperty Name="Tag" Relationship="WebSenaiModel.tagBasStr" FromRole="RadioBase" ToRole="Tag" />
+        </EntityType>
+        <EntityType Name="Setor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Resumo" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Id_UnidadeNegocio" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="RadioBase" Relationship="Self.RcadioBasStr" FromRole="Setor" ToRole="RadioBase" />
+          <NavigationProperty Name="Tag_Div" Relationship="Self.FK__Tag_Div__Id_Seto__5CD6CB2B" FromRole="Setor" ToRole="Tag_Div" />
+          <NavigationProperty Name="UnidadeNegocio" Relationship="Self.Setrtrn" FromRole="Setor" ToRole="UnidadeNegocio" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Tag_Div">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Setor" Type="Int32" Nullable="false" />
+          <Property Name="Titulo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Marca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Resumo" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Espaco" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Categoria" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Modelo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Setor" Relationship="Self.FK__Tag_Div__Id_Seto__5CD6CB2B" FromRole="Tag_Div" ToRole="Setor" />
+          <NavigationProperty Name="Tag_HTML" Relationship="Self.fk_Id_Div" FromRole="Tag_Div" ToRole="Tag_HTML" />
+        </EntityType>
+        <EntityType Name="Tag_HTML">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Div" Type="Int32" Nullable="false" />
+          <Property Name="Id_Hyperlink" Type="Int32" Nullable="false" />
+          <Property Name="Id_Item_li" Type="Int32" Nullable="false" />
+          <Property Name="Id_SVG_Symbol" Type="Int32" Nullable="false" />
+          <Property Name="CssTop" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CssLeft" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Nome" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Descrição" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Tag_Div" Relationship="Self.fk_Id_Div" FromRole="Tag_HTML" ToRole="Tag_Div" />
+          <NavigationProperty Name="Tag_Hyperlink" Relationship="Self.fk_Id_Hyper" FromRole="Tag_HTML" ToRole="Tag_Hyperlink" />
+          <NavigationProperty Name="Tag_Item_li" Relationship="Self.fk_Id_Item_li" FromRole="Tag_HTML" ToRole="Tag_Item_li" />
+          <NavigationProperty Name="Tag_SVG_Symbol" Relationship="Self.fk_SVG_Symbol" FromRole="Tag_HTML" ToRole="Tag_SVG_Symbol" />
+          <NavigationProperty Name="Tag" Relationship="WebSenaiModel.Rtag_html" FromRole="Tag_HTML" ToRole="Tag" />
+        </EntityType>
+        <EntityType Name="Tag_Hyperlink">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Titulo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Classe" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="ClasseSVG" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Espaco" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Categoria" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Tag_HTML" Relationship="Self.fk_Id_Hyper" FromRole="Tag_Hyperlink" ToRole="Tag_HTML" />
+        </EntityType>
+        <EntityType Name="Tag_Item_li">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Titulo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nivel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Categoria" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Espaco" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Tag_HTML" Relationship="Self.fk_Id_Item_li" FromRole="Tag_Item_li" ToRole="Tag_HTML" />
+        </EntityType>
+        <EntityType Name="Tag_SVG_Symbol">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_HTML" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Titulo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Descricao" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Classe" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Dados" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Tag_HTML" Relationship="Self.fk_SVG_Symbol" FromRole="Tag_SVG_Symbol" ToRole="Tag_HTML" />
+        </EntityType>
+        <EntityType Name="UnidadeNegocio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Filial" Type="Int32" Nullable="false" />
+          <Property Name="Descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Resumo" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Filial" Relationship="Self.Rcunidgen" FromRole="UnidadeNegocio" ToRole="Filial" />
+          <NavigationProperty Name="Setor" Relationship="Self.Setrtrn" FromRole="UnidadeNegocio" ToRole="Setor" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Pass" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Count" Type="Int32" />
+          <Property Name="Last" Type="DateTime" Precision="3" />
+          <Property Name="Create" Type="DateTime" Precision="3" />
+          <Property Name="Ative" Type="Int32" />
+          <Property Name="Hash" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="Rcatfytd">
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="1" />
+          <End Role="Filial" Type="Self.Filial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Filial">
+              <PropertyRef Name="Id_Empresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Rcunidgen">
+          <End Role="Filial" Type="Self.Filial" Multiplicity="1" />
+          <End Role="UnidadeNegocio" Type="Self.UnidadeNegocio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Filial">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UnidadeNegocio">
+              <PropertyRef Name="Id_Filial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RcadioBasStr">
+          <End Role="Setor" Type="Self.Setor" Multiplicity="1" />
+          <End Role="RadioBase" Type="Self.RadioBase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Setor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RadioBase">
+              <PropertyRef Name="Id_Setor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tag_Div__Id_Seto__5CD6CB2B">
+          <End Role="Setor" Type="Self.Setor" Multiplicity="1" />
+          <End Role="Tag_Div" Type="Self.Tag_Div" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Setor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tag_Div">
+              <PropertyRef Name="Id_Setor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Setrtrn">
+          <End Role="UnidadeNegocio" Type="Self.UnidadeNegocio" Multiplicity="1" />
+          <End Role="Setor" Type="Self.Setor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UnidadeNegocio">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Setor">
+              <PropertyRef Name="Id_UnidadeNegocio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Id_Div">
+          <End Role="Tag_Div" Type="Self.Tag_Div" Multiplicity="1" />
+          <End Role="Tag_HTML" Type="Self.Tag_HTML" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tag_Div">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tag_HTML">
+              <PropertyRef Name="Id_Div" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Id_Hyper">
+          <End Role="Tag_Hyperlink" Type="Self.Tag_Hyperlink" Multiplicity="1" />
+          <End Role="Tag_HTML" Type="Self.Tag_HTML" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tag_Hyperlink">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tag_HTML">
+              <PropertyRef Name="Id_Hyperlink" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Id_Item_li">
+          <End Role="Tag_Item_li" Type="Self.Tag_Item_li" Multiplicity="1" />
+          <End Role="Tag_HTML" Type="Self.Tag_HTML" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tag_Item_li">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tag_HTML">
+              <PropertyRef Name="Id_Item_li" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SVG_Symbol">
+          <End Role="Tag_SVG_Symbol" Type="Self.Tag_SVG_Symbol" Multiplicity="1" />
+          <End Role="Tag_HTML" Type="Self.Tag_HTML" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tag_SVG_Symbol">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tag_HTML">
+              <PropertyRef Name="Id_SVG_Symbol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GestaoPatrimonioEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Centro" EntityType="Self.Centro" />
+          <EntitySet Name="Conta" EntityType="Self.Conta" />
+          <EntitySet Name="Empresa" EntityType="Self.Empresa" />
+          <EntitySet Name="Filial" EntityType="Self.Filial" />
+          <EntitySet Name="RadioBase" EntityType="Self.RadioBase" />
+          <EntitySet Name="Setor" EntityType="Self.Setor" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Tag_Div" EntityType="Self.Tag_Div" />
+          <EntitySet Name="Tag_HTML" EntityType="Self.Tag_HTML" />
+          <EntitySet Name="Tag_Hyperlink" EntityType="Self.Tag_Hyperlink" />
+          <EntitySet Name="Tag_Item_li" EntityType="Self.Tag_Item_li" />
+          <EntitySet Name="Tag_SVG_Symbol" EntityType="Self.Tag_SVG_Symbol" />
+          <EntitySet Name="UnidadeNegocio" EntityType="Self.UnidadeNegocio" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <AssociationSet Name="Rcatfytd" Association="Self.Rcatfytd">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="Filial" EntitySet="Filial" />
+          </AssociationSet>
+          <AssociationSet Name="Rcunidgen" Association="Self.Rcunidgen">
+            <End Role="Filial" EntitySet="Filial" />
+            <End Role="UnidadeNegocio" EntitySet="UnidadeNegocio" />
+          </AssociationSet>
+          <AssociationSet Name="RcadioBasStr" Association="Self.RcadioBasStr">
+            <End Role="Setor" EntitySet="Setor" />
+            <End Role="RadioBase" EntitySet="RadioBase" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tag_Div__Id_Seto__5CD6CB2B" Association="Self.FK__Tag_Div__Id_Seto__5CD6CB2B">
+            <End Role="Setor" EntitySet="Setor" />
+            <End Role="Tag_Div" EntitySet="Tag_Div" />
+          </AssociationSet>
+          <AssociationSet Name="Setrtrn" Association="Self.Setrtrn">
+            <End Role="UnidadeNegocio" EntitySet="UnidadeNegocio" />
+            <End Role="Setor" EntitySet="Setor" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Id_Div" Association="Self.fk_Id_Div">
+            <End Role="Tag_Div" EntitySet="Tag_Div" />
+            <End Role="Tag_HTML" EntitySet="Tag_HTML" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Id_Hyper" Association="Self.fk_Id_Hyper">
+            <End Role="Tag_Hyperlink" EntitySet="Tag_Hyperlink" />
+            <End Role="Tag_HTML" EntitySet="Tag_HTML" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Id_Item_li" Association="Self.fk_Id_Item_li">
+            <End Role="Tag_Item_li" EntitySet="Tag_Item_li" />
+            <End Role="Tag_HTML" EntitySet="Tag_HTML" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SVG_Symbol" Association="Self.fk_SVG_Symbol">
+            <End Role="Tag_SVG_Symbol" EntitySet="Tag_SVG_Symbol" />
+            <End Role="Tag_HTML" EntitySet="Tag_HTML" />
+          </AssociationSet>
+          <EntitySet Name="Manutencao" EntityType="WebSenaiModel.Manutencao" />
+          <EntitySet Name="Patrimonio" EntityType="WebSenaiModel.Patrimonio" />
+          <EntitySet Name="Tag" EntityType="WebSenaiModel.Tag" />
+          <AssociationSet Name="id_ctr_centro" Association="WebSenaiModel.id_ctr_centro">
+            <End Role="Centro" EntitySet="Centro" />
+            <End Role="Patrimonio" EntitySet="Patrimonio" />
+          </AssociationSet>
+          <AssociationSet Name="id_ctr_conta" Association="WebSenaiModel.id_ctr_conta">
+            <End Role="Conta" EntitySet="Conta" />
+            <End Role="Patrimonio" EntitySet="Patrimonio" />
+          </AssociationSet>
+          <AssociationSet Name="sdsdsdsdsd" Association="WebSenaiModel.sdsdsdsdsd">
+            <End Role="Patrimonio" EntitySet="Patrimonio" />
+            <End Role="Tag" EntitySet="Tag" />
+          </AssociationSet>
+          <AssociationSet Name="tagBasStr" Association="WebSenaiModel.tagBasStr">
+            <End Role="RadioBase" EntitySet="RadioBase" />
+            <End Role="Tag" EntitySet="Tag" />
+          </AssociationSet>
+          <AssociationSet Name="Rtag_html" Association="WebSenaiModel.Rtag_html">
+            <End Role="Tag_HTML" EntitySet="Tag_HTML" />
+            <End Role="Tag" EntitySet="Tag" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Manutencao">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Resumo" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Patrimonio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descricao" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Resumo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Numero" Type="Int32" />
+          <Property Name="Dt_Aquisicao" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Dt_InicioUso" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Tv_Depreciacao" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Valor_Original" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Id_Conta" Type="Int32" Nullable="false" />
+          <Property Name="Id_Centro" Type="Int32" Nullable="false" />
+          <Property Name="Qt_DiasCalibracao" Type="Int32" />
+          <Property Name="Qt_DiasDepreciacao" Type="Int32" />
+          <Property Name="Qt_DiasManutencao" Type="Int32" />
+          <Property Name="Qt_DiasTesteEletrico" Type="Int32" />
+          <NavigationProperty Name="Centro" Relationship="WebSenaiModel.id_ctr_centro" FromRole="Patrimonio" ToRole="Centro" />
+          <NavigationProperty Name="Conta" Relationship="WebSenaiModel.id_ctr_conta" FromRole="Patrimonio" ToRole="Conta" />
+          <NavigationProperty Name="Tag" Relationship="WebSenaiModel.sdsdsdsdsd" FromRole="Patrimonio" ToRole="Tag" />
+        </EntityType>
+        <EntityType Name="Tag">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_RadioBase" Type="Int32" Nullable="false" />
+          <Property Name="Id_Patrimonio" Type="Int32" Nullable="false" />
+          <Property Name="Id_Tag_HTML" Type="Int32" Nullable="false" />
+          <Property Name="Descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Resumo" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Pos_X" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="CssTop" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CssLeft" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Temperatura" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Acelerometro" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="MovLeveMesRB" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CargaBateria" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="EstadoRemocao" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Ativa" Type="Boolean" />
+          <Property Name="Id_Conta" Type="Int32" />
+          <Property Name="Id_Centro" Type="Int32" />
+          <NavigationProperty Name="Patrimonio" Relationship="WebSenaiModel.sdsdsdsdsd" FromRole="Tag" ToRole="Patrimonio" />
+          <NavigationProperty Name="RadioBase" Relationship="WebSenaiModel.tagBasStr" FromRole="Tag" ToRole="RadioBase" />
+          <NavigationProperty Name="Tag_HTML" Relationship="WebSenaiModel.Rtag_html" FromRole="Tag" ToRole="Tag_HTML" />
+        </EntityType>
+        <Association Name="id_ctr_centro">
+          <End Type="WebSenaiModel.Centro" Role="Centro" Multiplicity="1" />
+          <End Type="WebSenaiModel.Patrimonio" Role="Patrimonio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Centro">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Patrimonio">
+              <PropertyRef Name="Id_Centro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="id_ctr_conta">
+          <End Type="WebSenaiModel.Conta" Role="Conta" Multiplicity="1" />
+          <End Type="WebSenaiModel.Patrimonio" Role="Patrimonio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conta">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Patrimonio">
+              <PropertyRef Name="Id_Conta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="sdsdsdsdsd">
+          <End Type="WebSenaiModel.Patrimonio" Role="Patrimonio" Multiplicity="1" />
+          <End Type="WebSenaiModel.Tag" Role="Tag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patrimonio">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tag">
+              <PropertyRef Name="Id_Patrimonio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tagBasStr">
+          <End Type="WebSenaiModel.RadioBase" Role="RadioBase" Multiplicity="1" />
+          <End Type="WebSenaiModel.Tag" Role="Tag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RadioBase">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tag">
+              <PropertyRef Name="Id_RadioBase" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Rtag_html">
+          <End Type="WebSenaiModel.Tag_HTML" Role="Tag_HTML" Multiplicity="1" />
+          <End Type="WebSenaiModel.Tag" Role="Tag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tag_HTML">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tag">
+              <PropertyRef Name="Id_Tag_HTML" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WebSenaiModelStoreContainer" CdmEntityContainer="GestaoPatrimonioEntities">
+          <EntitySetMapping Name="Centro">
+            <EntityTypeMapping TypeName="WebSenaiModel.Centro">
+              <MappingFragment StoreEntitySet="Centro">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+                <ScalarProperty Name="Resumo" ColumnName="Resumo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Conta">
+            <EntityTypeMapping TypeName="WebSenaiModel.Conta">
+              <MappingFragment StoreEntitySet="Conta">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+                <ScalarProperty Name="Resumo" ColumnName="Resumo" />
+                <ScalarProperty Name="Cd_Hospital" ColumnName="Cd_Hospital" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empresa">
+            <EntityTypeMapping TypeName="WebSenaiModel.Empresa">
+              <MappingFragment StoreEntitySet="Empresa">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+                <ScalarProperty Name="Resumo" ColumnName="Resumo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Filial">
+            <EntityTypeMapping TypeName="WebSenaiModel.Filial">
+              <MappingFragment StoreEntitySet="Filial">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_Empresa" ColumnName="Id_Empresa" />
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+                <ScalarProperty Name="Resumo" ColumnName="Resumo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RadioBase">
+            <EntityTypeMapping TypeName="WebSenaiModel.RadioBase">
+              <MappingFragment StoreEntitySet="RadioBase">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_Setor" ColumnName="Id_Setor" />
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+                <ScalarProperty Name="Resumo" ColumnName="Resumo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Setor">
+            <EntityTypeMapping TypeName="WebSenaiModel.Setor">
+              <MappingFragment StoreEntitySet="Setor">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+                <ScalarProperty Name="Resumo" ColumnName="Resumo" />
+                <ScalarProperty Name="Id_UnidadeNegocio" ColumnName="Id_UnidadeNegocio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="WebSenaiModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tag_Div">
+            <EntityTypeMapping TypeName="WebSenaiModel.Tag_Div">
+              <MappingFragment StoreEntitySet="Tag_Div">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_Setor" ColumnName="Id_Setor" />
+                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="Marca" ColumnName="Marca" />
+                <ScalarProperty Name="Resumo" ColumnName="Resumo" />
+                <ScalarProperty Name="Espaco" ColumnName="Espaco" />
+                <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+                <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tag_HTML">
+            <EntityTypeMapping TypeName="WebSenaiModel.Tag_HTML">
+              <MappingFragment StoreEntitySet="Tag_HTML">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_Div" ColumnName="Id_Div" />
+                <ScalarProperty Name="Id_Hyperlink" ColumnName="Id_Hyperlink" />
+                <ScalarProperty Name="Id_Item_li" ColumnName="Id_Item_li" />
+                <ScalarProperty Name="Id_SVG_Symbol" ColumnName="Id_SVG_Symbol" />
+                <ScalarProperty Name="CssTop" ColumnName="CssTop" />
+                <ScalarProperty Name="CssLeft" ColumnName="CssLeft" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Descrição" ColumnName="Descrição" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tag_Hyperlink">
+            <EntityTypeMapping TypeName="WebSenaiModel.Tag_Hyperlink">
+              <MappingFragment StoreEntitySet="Tag_Hyperlink">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="Classe" ColumnName="Classe" />
+                <ScalarProperty Name="ClasseSVG" ColumnName="ClasseSVG" />
+                <ScalarProperty Name="Espaco" ColumnName="Espaco" />
+                <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tag_Item_li">
+            <EntityTypeMapping TypeName="WebSenaiModel.Tag_Item_li">
+              <MappingFragment StoreEntitySet="Tag_Item_li">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="Nivel" ColumnName="Nivel" />
+                <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+                <ScalarProperty Name="Espaco" ColumnName="Espaco" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tag_SVG_Symbol">
+            <EntityTypeMapping TypeName="WebSenaiModel.Tag_SVG_Symbol">
+              <MappingFragment StoreEntitySet="Tag_SVG_Symbol">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_HTML" ColumnName="Id_HTML" />
+                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+                <ScalarProperty Name="Classe" ColumnName="Classe" />
+                <ScalarProperty Name="Dados" ColumnName="Dados" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UnidadeNegocio">
+            <EntityTypeMapping TypeName="WebSenaiModel.UnidadeNegocio">
+              <MappingFragment StoreEntitySet="UnidadeNegocio">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_Filial" ColumnName="Id_Filial" />
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+                <ScalarProperty Name="Resumo" ColumnName="Resumo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="WebSenaiModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Pass" ColumnName="Pass" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="Last" ColumnName="Last" />
+                <ScalarProperty Name="Create" ColumnName="Create" />
+                <ScalarProperty Name="Ative" ColumnName="Ative" />
+                <ScalarProperty Name="Hash" ColumnName="Hash" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Manutencao">
+            <EntityTypeMapping TypeName="WebSenaiModel.Manutencao">
+              <MappingFragment StoreEntitySet="Manutencao">
+                <ScalarProperty Name="Resumo" ColumnName="Resumo" />
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patrimonio">
+            <EntityTypeMapping TypeName="WebSenaiModel.Patrimonio">
+              <MappingFragment StoreEntitySet="Patrimonio">
+                <ScalarProperty Name="Qt_DiasTesteEletrico" ColumnName="Qt_DiasTesteEletrico" />
+                <ScalarProperty Name="Qt_DiasManutencao" ColumnName="Qt_DiasManutencao" />
+                <ScalarProperty Name="Qt_DiasDepreciacao" ColumnName="Qt_DiasDepreciacao" />
+                <ScalarProperty Name="Qt_DiasCalibracao" ColumnName="Qt_DiasCalibracao" />
+                <ScalarProperty Name="Id_Centro" ColumnName="Id_Centro" />
+                <ScalarProperty Name="Id_Conta" ColumnName="Id_Conta" />
+                <ScalarProperty Name="Valor_Original" ColumnName="Valor_Original" />
+                <ScalarProperty Name="Tv_Depreciacao" ColumnName="Tv_Depreciacao" />
+                <ScalarProperty Name="Dt_InicioUso" ColumnName="Dt_InicioUso" />
+                <ScalarProperty Name="Dt_Aquisicao" ColumnName="Dt_Aquisicao" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="Resumo" ColumnName="Resumo" />
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tag">
+            <EntityTypeMapping TypeName="WebSenaiModel.Tag">
+              <MappingFragment StoreEntitySet="Tag">
+                <ScalarProperty Name="Id_Centro" ColumnName="Id_Centro" />
+                <ScalarProperty Name="Id_Conta" ColumnName="Id_Conta" />
+                <ScalarProperty Name="Ativa" ColumnName="Ativa" />
+                <ScalarProperty Name="EstadoRemocao" ColumnName="EstadoRemocao" />
+                <ScalarProperty Name="CargaBateria" ColumnName="CargaBateria" />
+                <ScalarProperty Name="MovLeveMesRB" ColumnName="MovLeveMesRB" />
+                <ScalarProperty Name="Acelerometro" ColumnName="Acelerometro" />
+                <ScalarProperty Name="Temperatura" ColumnName="Temperatura" />
+                <ScalarProperty Name="CssLeft" ColumnName="CssLeft" />
+                <ScalarProperty Name="CssTop" ColumnName="CssTop" />
+                <ScalarProperty Name="Pos_X" ColumnName="Pos_X" />
+                <ScalarProperty Name="Resumo" ColumnName="Resumo" />
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+                <ScalarProperty Name="Id_Tag_HTML" ColumnName="Id_Tag_HTML" />
+                <ScalarProperty Name="Id_Patrimonio" ColumnName="Id_Patrimonio" />
+                <ScalarProperty Name="Id_RadioBase" ColumnName="Id_RadioBase" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
