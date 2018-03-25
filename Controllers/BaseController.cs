@@ -1,4 +1,6 @@
-﻿using GestaoPatrimonio.Models;
+
+//dskosdksdoksdo
+using GestaoPatrimonio.Models;
 using Mvc.Mailer;
 using System;
 using System.Collections.Generic;
@@ -322,6 +324,7 @@ namespace Utils.Security
 
         public RijndaelManaged GetEncryptor()
         {
+	//zxknxzjn
             if (this._rijndael == null)
             {
                 byte[] numArray = new byte[16];
